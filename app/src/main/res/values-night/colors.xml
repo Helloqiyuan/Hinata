@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="hinata_primary">#A5B4FC</color>
+    <color name="hinata_on_primary">#1E1B4B</color>
+    <color name="hinata_primary_container">#312E81</color>
+    <color name="hinata_on_primary_container">#E0E7FF</color>
+
+    <color name="hinata_secondary">#2DD4BF</color>
+    <color name="hinata_on_secondary">#003D38</color>
+    <color name="hinata_secondary_container">#115E59</color>
+    <color name="hinata_on_secondary_container">#CCFBF1</color>
+
+    <color name="hinata_surface">#0F172A</color>
+    <color name="hinata_surface_variant">#1E293B</color>
+    <color name="hinata_outline_variant">#334155</color>
+</resources>

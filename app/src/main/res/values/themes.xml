@@ -1,16 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Theme.Hinata" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+
+    <!-- Material 3：日间，透明系统栏 + 浅色状态栏图标 -->
+    <style name="Theme.Hinata" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/hinata_primary</item>
+        <item name="colorOnPrimary">@color/hinata_on_primary</item>
+        <item name="colorPrimaryContainer">@color/hinata_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/hinata_on_primary_container</item>
+
+        <item name="colorSecondary">@color/hinata_secondary</item>
+        <item name="colorOnSecondary">@color/hinata_on_secondary</item>
+        <item name="colorSecondaryContainer">@color/hinata_secondary_container</item>
+        <item name="colorOnSecondaryContainer">@color/hinata_on_secondary_container</item>
+
+        <item name="android:colorBackground">@color/hinata_surface</item>
+        <item name="colorSurface">@color/hinata_surface</item>
+        <item name="colorSurfaceVariant">@color/hinata_surface_variant</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="android:windowBackground">@color/hinata_surface</item>
+    </style>
+
+    <!-- 数据卡片：大圆角 + 轻抬起 -->
+    <style name="Widget.Hinata.Card" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">@dimen/card_corner_large</item>
+        <item name="cardElevation">1dp</item>
+        <item name="cardBackgroundColor">?attr/colorSurfaceContainerHigh</item>
+    </style>
+
+    <!-- 底部 Tab：圆角指示条、非通栏 -->
+    <style name="Widget.Hinata.TabLayout" parent="Widget.Material3.TabLayout">
+        <item name="tabIndicatorFullWidth">false</item>
+        <item name="tabMode">fixed</item>
+        <item name="tabGravity">fill</item>
+        <item name="tabRippleColor">?attr/colorPrimaryContainer</item>
+        <item name="tabIndicatorColor">?attr/colorPrimary</item>
+        <item name="tabSelectedTextColor">?attr/colorPrimary</item>
+        <item name="tabTextColor">?attr/colorOnSurfaceVariant</item>
     </style>
 </resources>

@@ -1,16 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Theme.Hinata" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/black</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+
+    <!-- 夜间：深色表面 + 浅色内容区状态栏图标关闭 -->
+    <style name="Theme.Hinata" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/hinata_primary</item>
+        <item name="colorOnPrimary">@color/hinata_on_primary</item>
+        <item name="colorPrimaryContainer">@color/hinata_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/hinata_on_primary_container</item>
+
+        <item name="colorSecondary">@color/hinata_secondary</item>
+        <item name="colorOnSecondary">@color/hinata_on_secondary</item>
+        <item name="colorSecondaryContainer">@color/hinata_secondary_container</item>
+        <item name="colorOnSecondaryContainer">@color/hinata_on_secondary_container</item>
+
+        <item name="android:colorBackground">@color/hinata_surface</item>
+        <item name="colorSurface">@color/hinata_surface</item>
+        <item name="colorSurfaceVariant">@color/hinata_surface_variant</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:windowBackground">@color/hinata_surface</item>
     </style>
 </resources>
