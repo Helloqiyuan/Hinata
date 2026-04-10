@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
@@ -27,6 +28,11 @@ class DataFragment : Fragment() {
 
     private val adapter = DataRowsAdapter()
 
+    /** 用户下拉触发刷新结束后提示「已刷新」（避免首次进入也弹 Toast） */
+    private var pendingRefreshDoneToast = false
+
+    private var lastUiLoading = false
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -41,10 +47,22 @@ class DataFragment : Fragment() {
         binding.recyclerData.adapter = adapter
         // 下拉刷新指示器与主题主色一致
         binding.swipeRefresh.setColorSchemeResources(R.color.hinata_primary)
-        binding.swipeRefresh.setOnRefreshListener { viewModel.refresh() }
+        binding.swipeRefresh.setOnRefreshListener {
+            pendingRefreshDoneToast = true
+            viewModel.refresh()
+        }
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.uiState.collect { state ->
+                    if (lastUiLoading && !state.isLoading && pendingRefreshDoneToast) {
+                        pendingRefreshDoneToast = false
+                        Toast.makeText(
+                            requireContext(),
+                            R.string.toast_data_refreshed,
+                            Toast.LENGTH_SHORT,
+                        ).show()
+                    }
+                    lastUiLoading = state.isLoading
                     binding.swipeRefresh.isRefreshing = state.isLoading
                     adapter.submitList(state.rows)
                     val hasErr = !state.error.isNullOrBlank()

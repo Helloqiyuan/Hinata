@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!-- 仅出现在溢出菜单（工具栏右侧「⋮」三点）内，不使用独立图标 -->
     <item
-            android:id="@+id/action_refresh"
-            android:icon="@android:drawable/ic_popup_sync"
-            android:title="@string/action_refresh"
-            app:showAsAction="ifRoom" />
+            android:id="@+id/action_about"
+            android:title="@string/action_about"
+            app:showAsAction="never" />
 </menu>

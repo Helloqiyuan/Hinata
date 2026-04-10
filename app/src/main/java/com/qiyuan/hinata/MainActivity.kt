@@ -1,21 +1,29 @@
 package com.qiyuan.hinata
 
+import android.content.Intent
 import android.content.res.Configuration
+import android.net.Uri
 import android.os.Bundle
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.method.LinkMovementMethod
+import android.text.style.URLSpan
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.tabs.TabLayoutMediator
 import com.qiyuan.hinata.databinding.ActivityMainBinding
 import com.qiyuan.hinata.ui.MainPagerAdapter
 
 /**
- * 主界面：工具栏刷新 + 底部 TabLayout + ViewPager2（数据 / 日志）。
+ * 主界面：关于入口 + 底部 TabLayout + ViewPager2（数据 / 日志）；下拉刷新在数据页。
  */
 class MainActivity : AppCompatActivity() {
 
@@ -62,11 +70,40 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.action_refresh -> {
-                viewModel.refresh()
+            R.id.action_about -> {
+                showAboutDialog()
                 true
             }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    /** 展示版本与构建期注入的 Git 仓库链接（可点击打开浏览器） */
+    private fun showAboutDialog() {
+        val url = BuildConfig.GIT_REPO_URL
+        // 关于对话框仅展示 versionName（文案见 about_version_line）
+        val versionLine = getString(R.string.about_version_line, BuildConfig.VERSION_NAME)
+        val hint = getString(R.string.about_repo_hint)
+        val body = "$versionLine\n\n$hint\n$url"
+        val spannable = SpannableString(body)
+        val urlStart = body.indexOf(url)
+        if (urlStart >= 0) {
+            spannable.setSpan(
+                URLSpan(url),
+                urlStart,
+                urlStart + url.length,
+                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,
+            )
+        }
+        val dialog = MaterialAlertDialogBuilder(this)
+            .setTitle(R.string.about_dialog_title)
+            .setMessage(spannable)
+            .setPositiveButton(android.R.string.ok, null)
+            .setNeutralButton(R.string.about_open_in_browser) { _, _ ->
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+            }
+            .show()
+        (dialog.findViewById(android.R.id.message) as? TextView)?.movementMethod =
+            LinkMovementMethod.getInstance()
     }
 }

@@ -79,7 +79,8 @@ private fun BatterySnapshot.toRows(): List<MainViewModel.DataRow> {
         MainViewModel.DataRow(
             title = "Root 授权",
             value = if (rootGranted) "已授予" else "未授予",
-            footer = if (rootGranted) "KernelSU / Magisk 等 root 管理器" else "将尽量使用系统 API，容量类可能缺失",
+            // 已授予 root 时不显示管理器类脚注；未授予时保留降级说明
+            footer = if (rootGranted) null else "将尽量使用系统 API，容量类可能缺失",
         ),
         MainViewModel.DataRow(
             title = "设计容量",

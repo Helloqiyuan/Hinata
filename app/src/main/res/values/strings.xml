@@ -2,6 +2,20 @@
     <string name="app_name">Hinata</string>
     <string name="tab_data">数据</string>
     <string name="tab_log">日志</string>
-    <string name="action_refresh">刷新</string>
+    <string name="action_about">关于</string>
+    <string name="about_dialog_title">关于 Hinata</string>
+    <string name="about_version_line">版本：%1$s</string>
+    <string name="about_repo_hint">源码仓库：</string>
+    <string name="about_open_in_browser">在浏览器中打开</string>
     <string name="log_clear">清空日志</string>
+    <string name="log_export">导出日志</string>
+    <string name="log_export_ok_title">导出成功</string>
+    <string name="log_export_ok_message">文件已写入下载目录。\n\n相对位置：%1$s\n\n完整路径：\n%2$s</string>
+    <string name="log_export_share">分享</string>
+    <string name="log_export_view_path">复制路径</string>
+    <string name="log_export_copy_ok">路径已复制到剪贴板</string>
+    <string name="log_export_fail_title">导出失败</string>
+    <string name="toast_log_export_empty">暂无日志可导出</string>
+    <string name="toast_data_refreshed">已刷新</string>
+    <string name="toast_log_cleared">已清空</string>
 </resources>

@@ -40,4 +40,8 @@ object AppLogger {
         buffer.clear()
         _lines.value = emptyList()
     }
+
+    /** 导出用：当前内存日志全文（换行拼接） */
+    @Synchronized
+    fun getSnapshotText(): String = buffer.joinToString(separator = "\n")
 }
