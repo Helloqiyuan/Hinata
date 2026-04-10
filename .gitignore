@@ -1,18 +1,22 @@
 *.iml
 .gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
+.idea
+/app/release
 .DS_Store
 /build
+.kotlin
 /captures
 .externalNativeBuild
 .cxx
+# 本机 SDK 路径等（任意层级出现均忽略）
 local.properties
+
+# 签名密钥切勿入库
+*.jks
+*.keystore
 
 # 编辑器本地配置
 .vscode/
+
+# 内存转储（调试偶发产生）
+*.hprof
