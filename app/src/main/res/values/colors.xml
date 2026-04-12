@@ -25,6 +25,9 @@
     <color name="hinata_surface_variant">#E3E6EA</color>
     <color name="hinata_outline_variant">#B8BEC6</color>
 
+    <!-- 底部 Tab 选中：浅黑（指示条与选中文字） -->
+    <color name="hinata_tab_selected">#252525</color>
+
     <color name="hinata_card_background">#FFFFFF</color>
     <!-- 与主色一致，保留轮换索引兼容 DiffUtil，视觉上均为白底 -->
     <color name="hinata_card_tint_0">@color/hinata_card_background</color>
@@ -37,4 +40,10 @@
     <!-- 电流/功率主数值：充电偏暖绿、放电偏靛蓝（与正负号呼应，无需脚注说明） -->
     <color name="hinata_metric_charge">#0D9488</color>
     <color name="hinata_metric_discharge">#4F46E5</color>
+
+    <!-- 日志页：Outlined 按钮黑字与描边；下方日志区白底、正文深色 -->
+    <color name="hinata_log_button_text">#000000</color>
+    <color name="hinata_log_button_stroke">#616161</color>
+    <color name="hinata_log_area_background">#FFFFFF</color>
+    <color name="hinata_log_text">#1A1A1A</color>
 </resources>

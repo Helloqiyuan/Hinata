@@ -10,12 +10,20 @@
     <color name="hinata_secondary_container">#115E59</color>
     <color name="hinata_on_secondary_container">#CCFBF1</color>
 
-    <!-- 夜间：深灰底 + 白卡片 -->
-    <color name="hinata_surface">#1F1F1F</color>
-    <color name="hinata_surface_variant">#2A2A2A</color>
-    <color name="hinata_outline_variant">#3D3D3D</color>
+    <!-- 夜间：黑灰页面底 -->
+    <color name="hinata_surface">#141414</color>
+    <color name="hinata_surface_variant">#1E1E1E</color>
+    <color name="hinata_outline_variant">#424242</color>
 
-    <color name="hinata_card_background">#FFFFFF</color>
+    <!-- 主/次文字：白与浅灰（用于卡片与列表） -->
+    <color name="hinata_on_surface">#FFFFFF</color>
+    <color name="hinata_on_surface_variant">#BDBDBD</color>
+
+    <!-- 底部 Tab 选中：深色底上的浅灰黑感 -->
+    <color name="hinata_tab_selected">#C4C4C4</color>
+
+    <!-- 数据卡片：黑色 -->
+    <color name="hinata_card_background">#000000</color>
     <color name="hinata_card_tint_0">@color/hinata_card_background</color>
     <color name="hinata_card_tint_1">@color/hinata_card_background</color>
     <color name="hinata_card_tint_2">@color/hinata_card_background</color>
@@ -25,4 +33,10 @@
 
     <color name="hinata_metric_charge">#5EEAD4</color>
     <color name="hinata_metric_discharge">#A5B4FC</color>
+
+    <!-- 日志页：按钮浅色字；日志区黑底、正文浅色（暗黑下按钮仍用浅色以保证可读） -->
+    <color name="hinata_log_button_text">#FFFFFF</color>
+    <color name="hinata_log_button_stroke">#9E9E9E</color>
+    <color name="hinata_log_area_background">#000000</color>
+    <color name="hinata_log_text">#E8E8E8</color>
 </resources>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- 夜间：深色表面 + 浅色内容区状态栏图标关闭 -->
+    <!-- 夜间：黑灰底、黑卡片、浅色字 -->
     <style name="Theme.Hinata" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/hinata_primary</item>
         <item name="colorOnPrimary">@color/hinata_on_primary</item>
@@ -15,7 +15,14 @@
 
         <item name="android:colorBackground">@color/hinata_surface</item>
         <item name="colorSurface">@color/hinata_surface</item>
+        <item name="colorOnSurface">@color/hinata_on_surface</item>
         <item name="colorSurfaceVariant">@color/hinata_surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/hinata_on_surface_variant</item>
+
+        <item name="colorSurfaceContainer">@color/hinata_surface_variant</item>
+        <item name="colorSurfaceContainerLow">@color/hinata_surface</item>
+        <item name="colorSurfaceContainerHigh">@color/hinata_surface_variant</item>
+
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="android:windowLightStatusBar">false</item>

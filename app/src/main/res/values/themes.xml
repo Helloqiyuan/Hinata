@@ -41,9 +41,9 @@
         <item name="tabIndicatorFullWidth">false</item>
         <item name="tabMode">fixed</item>
         <item name="tabGravity">fill</item>
-        <item name="tabRippleColor">?attr/colorPrimaryContainer</item>
-        <item name="tabIndicatorColor">?attr/colorPrimary</item>
-        <item name="tabSelectedTextColor">?attr/colorPrimary</item>
+        <item name="tabRippleColor">?attr/colorSurfaceVariant</item>
+        <item name="tabIndicatorColor">@color/hinata_tab_selected</item>
+        <item name="tabSelectedTextColor">@color/hinata_tab_selected</item>
         <item name="tabTextColor">?attr/colorOnSurfaceVariant</item>
     </style>
 </resources>

@@ -20,7 +20,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
-                android:text="@string/log_clear" />
+                android:text="@string/log_clear"
+                android:textColor="@color/hinata_log_button_text"
+                app:strokeColor="@color/hinata_log_button_stroke" />
 
         <!-- 无日志时由 LogFragment 设为不可用 -->
         <com.google.android.material.button.MaterialButton
@@ -31,7 +33,9 @@
                 android:layout_marginStart="12dp"
                 android:enabled="false"
                 android:minHeight="48dp"
-                android:text="@string/log_export" />
+                android:text="@string/log_export"
+                android:textColor="@color/hinata_log_button_text"
+                app:strokeColor="@color/hinata_log_button_stroke" />
     </LinearLayout>
 
     <com.google.android.material.card.MaterialCardView
@@ -39,7 +43,7 @@
             android:layout_height="0dp"
             android:layout_marginTop="12dp"
             android:layout_weight="1"
-            app:cardBackgroundColor="?attr/colorSurfaceContainerHighest"
+            app:cardBackgroundColor="@color/hinata_log_area_background"
             app:cardCornerRadius="@dimen/card_corner_large"
             app:cardElevation="0dp"
             app:strokeColor="?attr/colorOutlineVariant"
@@ -58,7 +62,7 @@
                     android:fontFamily="monospace"
                     android:lineSpacingMultiplier="1.15"
                     android:textAppearance="?attr/textAppearanceBodySmall"
-                    android:textColor="?attr/colorOnSurface"
+                    android:textColor="@color/hinata_log_text"
                     android:textIsSelectable="true" />
         </androidx.core.widget.NestedScrollView>
     </com.google.android.material.card.MaterialCardView>
