@@ -3,6 +3,10 @@
     <!-- 8dp 栅格 -->
     <dimen name="padding_screen">16dp</dimen>
     <dimen name="padding_card">16dp</dimen>
+    <!-- 数据列表卡片：更紧凑，一屏显示更多行 -->
+    <dimen name="padding_card_compact">10dp</dimen>
+    <dimen name="card_margin_vertical_compact">3dp</dimen>
+    <dimen name="card_corner_compact">12dp</dimen>
     <dimen name="card_corner_large">20dp</dimen>
     <dimen name="elevation_toolbar">0dp</dimen>
     <dimen name="divider_height">1dp</dimen>

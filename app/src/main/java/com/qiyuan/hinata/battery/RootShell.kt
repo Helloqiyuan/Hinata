@@ -27,11 +27,29 @@ object RootShell {
         return path.all { it.isLetterOrDigit() || it == '/' || it == '_' || it == '.' || it == '-' }
     }
 
+    /** 高通电池充电类型节点（与 [isSafePowerSupplyPath] 并列，供只读 cat） */
+    const val QCOM_BATTERY_REAL_TYPE_PATH = "/sys/class/qcom-battery/real_type"
+
+    /**
+     * 允许只读的 sysfs：power_supply 下路径，或 [QCOM_BATTERY_REAL_TYPE_PATH]。
+     */
+    fun isSafeReadableSysfsPath(path: String): Boolean {
+        if (path.length > 512) return false
+        if (path == QCOM_BATTERY_REAL_TYPE_PATH) return true
+        return isSafePowerSupplyPath(path)
+    }
+
+    /** 批量 cat 时的分段标记 */
+    private const val BATCH_DELIM = "__HINATA_H_B__"
+
     /**
      * 执行 `su -c "<singleCommand>"`，带超时与输出合并。
+     * @param logCommand 为 false 时不写入日志（高频轮询省电、少 I/O）。
      */
-    fun runSuCommand(singleCommand: String, timeoutMs: Long = DEFAULT_TIMEOUT_MS): ShellResult {
-        AppLogger.append("执行: su -c \"$singleCommand\"")
+    fun runSuCommand(singleCommand: String, timeoutMs: Long = DEFAULT_TIMEOUT_MS, logCommand: Boolean = true): ShellResult {
+        if (logCommand) {
+            AppLogger.append("执行: su -c \"$singleCommand\"")
+        }
         val pb = ProcessBuilder(listOf("su", "-c", singleCommand))
         pb.redirectErrorStream(true)
         return runProcess(pb, timeoutMs)
@@ -47,14 +65,37 @@ object RootShell {
 
     /** 使用已校验路径读取文件：`cat <path>` */
     fun catSafePath(path: String): ShellResult {
-        require(isSafePowerSupplyPath(path)) { "拒绝不安全路径: $path" }
+        require(isSafeReadableSysfsPath(path)) { "拒绝不安全路径: $path" }
         return runSuCommand("cat $path")
     }
 
+    /**
+     * 单次 su 内依次 cat 多个 sysfs 文件，段间以 [BATCH_DELIM] 分隔。
+     */
+    fun catSafePathsBatched(paths: List<String>, logCommand: Boolean = false): ShellResult {
+        if (paths.isEmpty()) return ShellResult(0, "")
+        paths.forEach { require(isSafeReadableSysfsPath(it)) { "拒绝不安全路径: $it" } }
+        val script = paths.joinToString(";") { p ->
+            "printf '%s\\n' '$BATCH_DELIM';cat $p 2>/dev/null"
+        }
+        return runSuCommand(script, logCommand = logCommand)
+    }
+
+    /** 解析 [catSafePathsBatched] 输出，与 [paths] 顺序一致（每段取首条非空行） */
+    fun parseBatchedCatOutput(output: String, pathCount: Int): List<String?> {
+        if (pathCount <= 0) return emptyList()
+        val chunks = output.split(BATCH_DELIM).dropWhile { it.isBlank() }
+        return List(pathCount) { idx ->
+            val raw = chunks.getOrNull(idx)?.trim().orEmpty()
+            val line = raw.lineSequence().firstOrNull { it.isNotBlank() }?.trim()
+            line?.takeIf { it.isNotEmpty() }
+        }
+    }
+
     /** 列出目录：`ls <dir>`（dir 固定为白名单路径） */
-    fun lsSafeDir(dir: String): ShellResult {
+    fun lsSafeDir(dir: String, logCommand: Boolean = true): ShellResult {
         require(dir == "/sys/class/power_supply") { "仅允许列出 /sys/class/power_supply" }
-        return runSuCommand("ls $dir")
+        return runSuCommand("ls $dir", logCommand = logCommand)
     }
 
     /** 只读 dumpsys battery */

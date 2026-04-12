@@ -30,6 +30,12 @@
         <item name="cardBackgroundColor">?attr/colorSurfaceContainerHigh</item>
     </style>
 
+    <!-- 数据 Tab 列表项：更小圆角，与紧凑内边距配套 -->
+    <style name="Widget.Hinata.Card.Compact" parent="Widget.Hinata.Card">
+        <item name="cardCornerRadius">@dimen/card_corner_compact</item>
+        <item name="cardElevation">0.5dp</item>
+    </style>
+
     <!-- 底部 Tab：圆角指示条、非通栏 -->
     <style name="Widget.Hinata.TabLayout" parent="Widget.Material3.TabLayout">
         <item name="tabIndicatorFullWidth">false</item>

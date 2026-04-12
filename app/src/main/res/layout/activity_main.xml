@@ -48,7 +48,7 @@
                 style="@style/Widget.Hinata.TabLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?attr/colorSurfaceContainer"
+                android:background="@color/hinata_surface"
                 android:paddingTop="4dp"
                 android:paddingBottom="4dp" />
     </LinearLayout>

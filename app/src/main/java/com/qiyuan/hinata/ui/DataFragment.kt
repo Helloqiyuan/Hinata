@@ -45,6 +45,9 @@ class DataFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.recyclerData.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerData.adapter = adapter
+        // 关闭 item 动画，避免高频数值更新时整卡闪烁
+        binding.recyclerData.itemAnimator = null
+        binding.recyclerData.setHasFixedSize(true)
         // 下拉刷新指示器与主题主色一致
         binding.swipeRefresh.setColorSchemeResources(R.color.hinata_primary)
         binding.swipeRefresh.setOnRefreshListener {

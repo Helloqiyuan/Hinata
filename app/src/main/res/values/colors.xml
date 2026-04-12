@@ -20,7 +20,21 @@
     <color name="hinata_secondary_container">#CCFBF1</color>
     <color name="hinata_on_secondary_container">#042F2E</color>
 
-    <color name="hinata_surface">#F8FAFC</color>
-    <color name="hinata_surface_variant">#F1F5F9</color>
-    <color name="hinata_outline_variant">#CBD5E1</color>
+    <!-- 页面/列表灰底；数据卡片为纯白铺在其上 -->
+    <color name="hinata_surface">#EBEDF0</color>
+    <color name="hinata_surface_variant">#E3E6EA</color>
+    <color name="hinata_outline_variant">#B8BEC6</color>
+
+    <color name="hinata_card_background">#FFFFFF</color>
+    <!-- 与主色一致，保留轮换索引兼容 DiffUtil，视觉上均为白底 -->
+    <color name="hinata_card_tint_0">@color/hinata_card_background</color>
+    <color name="hinata_card_tint_1">@color/hinata_card_background</color>
+    <color name="hinata_card_tint_2">@color/hinata_card_background</color>
+    <color name="hinata_card_tint_3">@color/hinata_card_background</color>
+    <color name="hinata_card_tint_4">@color/hinata_card_background</color>
+    <color name="hinata_card_tint_5">@color/hinata_card_background</color>
+
+    <!-- 电流/功率主数值：充电偏暖绿、放电偏靛蓝（与正负号呼应，无需脚注说明） -->
+    <color name="hinata_metric_charge">#0D9488</color>
+    <color name="hinata_metric_discharge">#4F46E5</color>
 </resources>

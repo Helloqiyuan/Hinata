@@ -10,7 +10,19 @@
     <color name="hinata_secondary_container">#115E59</color>
     <color name="hinata_on_secondary_container">#CCFBF1</color>
 
-    <color name="hinata_surface">#0F172A</color>
-    <color name="hinata_surface_variant">#1E293B</color>
-    <color name="hinata_outline_variant">#334155</color>
+    <!-- 夜间：深灰底 + 白卡片 -->
+    <color name="hinata_surface">#1F1F1F</color>
+    <color name="hinata_surface_variant">#2A2A2A</color>
+    <color name="hinata_outline_variant">#3D3D3D</color>
+
+    <color name="hinata_card_background">#FFFFFF</color>
+    <color name="hinata_card_tint_0">@color/hinata_card_background</color>
+    <color name="hinata_card_tint_1">@color/hinata_card_background</color>
+    <color name="hinata_card_tint_2">@color/hinata_card_background</color>
+    <color name="hinata_card_tint_3">@color/hinata_card_background</color>
+    <color name="hinata_card_tint_4">@color/hinata_card_background</color>
+    <color name="hinata_card_tint_5">@color/hinata_card_background</color>
+
+    <color name="hinata_metric_charge">#5EEAD4</color>
+    <color name="hinata_metric_discharge">#A5B4FC</color>
 </resources>
