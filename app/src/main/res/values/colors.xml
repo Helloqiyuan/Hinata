@@ -25,6 +25,10 @@
     <color name="hinata_surface_variant">#E3E6EA</color>
     <color name="hinata_outline_variant">#B8BEC6</color>
 
+    <!-- 与主题 colorOnSurface 对应，须在默认 values 中声明（夜间在 values-night 覆盖） -->
+    <color name="hinata_on_surface">#1C1B1F</color>
+    <color name="hinata_on_surface_variant">#49454F</color>
+
     <!-- 底部 Tab 选中：浅黑（指示条与选中文字） -->
     <color name="hinata_tab_selected">#252525</color>
 
